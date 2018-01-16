@@ -17,9 +17,14 @@ def collatz(number):
         return result
 
 def main():
-    guess = int(input("Enter an integer:"))
 
-    if guess != 1:
-        collatz(guess)
+    try:
+        guess = int(input("Enter an integer:"))
+        while guess != 1:
+            guess = collatz(guess)
+    except ValueError:
+        print("Please enter an integer.")
+        main()
+
 
 main()
